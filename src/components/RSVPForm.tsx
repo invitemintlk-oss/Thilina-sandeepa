@@ -48,16 +48,16 @@ export const RSVPForm: React.FC = () => {
   };
 
   return (
-    <section id="rsvp" className="w-full py-24 relative overflow-hidden bg-[#4a0a0f]">
+    <section id="rsvp" className="w-full py-24 relative overflow-hidden bg-[#fbf7f2]">
       {/* Background Image with Faded Edges */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url('/Burgundy Rose and Gold Floral Frame.png')` }}
+        style={{ backgroundImage: `url('/Romantic Red and Ivory Floral Frame.png')` }}
       ></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-[#4a0a0f] via-transparent to-[#4a0a0f]"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#fbf7f2] via-transparent to-[#fbf7f2]"></div>
       
       {/* Subtle Glow Effects */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-3/4 bg-[#FFFFFF]/5 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-3/4 bg-[#9b1c23]/5 blur-[120px] rounded-full pointer-events-none"></div>
 
       <div className="container px-4 md:px-6 mx-auto relative z-10">
         <motion.div 
@@ -67,15 +67,15 @@ export const RSVPForm: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-6xl md:text-7xl font-display text-[#FFFFFF] drop-shadow-md" style={{ fontFamily: "'Great Vibes', cursive" }}>
+          <h2 className="text-6xl md:text-7xl font-display text-[#9b1c23] drop-shadow-md" style={{ fontFamily: "'Great Vibes', cursive" }}>
             RSVP
           </h2>
           <div className="flex items-center space-x-4">
-            <div className="w-12 md:w-20 h-[1px] bg-gradient-to-r from-transparent to-[#FFFFFF]/70"></div>
-            <Sparkles className="w-4 h-4 text-[#FFFFFF] opacity-80" />
-            <div className="w-12 md:w-20 h-[1px] bg-gradient-to-l from-transparent to-[#FFFFFF]/70"></div>
+            <div className="w-12 md:w-20 h-[1px] bg-gradient-to-r from-transparent to-[#9b1c23]/70"></div>
+            <Sparkles className="w-4 h-4 text-[#9b1c23] opacity-80" />
+            <div className="w-12 md:w-20 h-[1px] bg-gradient-to-l from-transparent to-[#9b1c23]/70"></div>
           </div>
-          <p className="text-[11px] md:text-sm text-white/70 font-sans tracking-[0.2em] uppercase mt-6 max-w-2xl px-4 leading-relaxed">
+          <p className="text-[11px] md:text-sm text-stone-500 font-sans tracking-[0.2em] uppercase mt-6 max-w-2xl px-4 leading-relaxed">
             Where forever begins, and we’d love for you to be there.<br className="hidden sm:block" /> Please let us know if you'll be joining us on our special day.
           </p>
         </motion.div>
@@ -87,26 +87,26 @@ export const RSVPForm: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <div className="relative bg-black/40 backdrop-blur-md p-8 sm:p-12 md:p-16 rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-[#FFFFFF]/30 overflow-hidden">
+          <div className="relative bg-white/80 backdrop-blur-md p-8 sm:p-12 md:p-16 rounded-[40px] shadow-[0_20px_50px_rgba(127,29,29,0.12)] border border-[#9b1c23]/30 overflow-hidden">
             
             {/* Decorative Inner Border */}
-            <div className="absolute inset-3 sm:inset-4 border-[1px] border-[#FFFFFF]/10 rounded-[30px] pointer-events-none"></div>
+            <div className="absolute inset-3 sm:inset-4 border-[1px] border-[#9b1c23]/10 rounded-[30px] pointer-events-none"></div>
 
             {submitted ? (
               <div className="text-center py-10">
-                <p className="text-5xl font-display text-[#FFFFFF] mb-6 drop-shadow-md" style={{ fontFamily: "'Great Vibes', cursive" }}>Thank you!</p>
-                <p className="text-sm md:text-base font-sans text-white/80 tracking-widest uppercase">Your response has been lovingly recorded.</p>
+                <p className="text-5xl font-display text-[#9b1c23] mb-6 drop-shadow-md" style={{ fontFamily: "'Great Vibes', cursive" }}>Thank you!</p>
+                <p className="text-sm md:text-base font-sans text-stone-600 tracking-widest uppercase">Your response has been lovingly recorded.</p>
               </div>
             ) : (
               <form onSubmit={handleRSVP} className="relative z-10 space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
-                    <label className="block text-[#FFFFFF] text-xs font-semibold uppercase tracking-[0.2em] mb-3">Name</label>
+                    <label className="block text-[#9b1c23] text-xs font-semibold uppercase tracking-[0.2em] mb-3">Name</label>
                     <input 
                       type="text" 
                       required 
                       placeholder="Eg: Namal Perera" 
-                      className="w-full bg-black/60 text-white border border-[#FFFFFF]/40 rounded-xl px-5 py-4 font-sans focus:ring-1 focus:ring-[#FFFFFF] focus:border-[#FFFFFF] outline-none transition-all placeholder:text-white/30"
+                      className="w-full bg-white/80 text-stone-700 border border-[#9b1c23]/40 rounded-xl px-5 py-4 font-sans focus:ring-1 focus:ring-[#9b1c23] focus:border-[#9b1c23] outline-none transition-all placeholder:text-white/30"
                       name="name" 
                       value={name}
                       onChange={(e) => setName(e.target.value)}
@@ -114,21 +114,21 @@ export const RSVPForm: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-[#FFFFFF] text-xs font-semibold uppercase tracking-[0.2em] mb-3">Will you attend?</label>
+                    <label className="block text-[#9b1c23] text-xs font-semibold uppercase tracking-[0.2em] mb-3">Will you attend?</label>
                     <div className="relative">
                       <select 
                         name="attending" 
                         required 
                         value={attending}
                         onChange={(e) => setAttending(e.target.value)}
-                        className="w-full bg-black/60 text-white border border-[#FFFFFF]/40 rounded-xl px-5 py-4 font-sans appearance-none pr-10 focus:ring-1 focus:ring-[#FFFFFF] focus:border-[#FFFFFF] outline-none transition-all"
+                        className="w-full bg-white/80 text-stone-700 border border-[#9b1c23]/40 rounded-xl px-5 py-4 font-sans appearance-none pr-10 focus:ring-1 focus:ring-[#9b1c23] focus:border-[#9b1c23] outline-none transition-all"
                         disabled={isSubmitting}
                       >
-                        <option value="" disabled className="bg-[#7f1d1d] text-white/50">Select an option</option>
-                        <option value="yes" className="bg-[#7f1d1d] text-white">Yes, I'll be there</option>
-                        <option value="no" className="bg-[#7f1d1d] text-white">Sorry, I can't make it</option>
+                        <option value="" disabled className="bg-white text-stone-400">Select an option</option>
+                        <option value="yes" className="bg-white text-stone-700">Yes, I'll be there</option>
+                        <option value="no" className="bg-white text-stone-700">Sorry, I can't make it</option>
                       </select>
-                      <svg className="w-5 h-5 absolute right-4 top-1/2 transform -translate-y-1/2 text-[#FFFFFF] pointer-events-none" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 absolute right-4 top-1/2 transform -translate-y-1/2 text-[#9b1c23] pointer-events-none" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"></path>
                       </svg>
                     </div>
@@ -141,23 +141,23 @@ export const RSVPForm: React.FC = () => {
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
                   >
-                    <label className="block text-[#FFFFFF] text-xs font-semibold uppercase tracking-[0.2em] mb-3">Number of Guests (including yourself)</label>
+                    <label className="block text-[#9b1c23] text-xs font-semibold uppercase tracking-[0.2em] mb-3">Number of Guests (including yourself)</label>
                     <div className="relative">
                       <select 
                         required={attending === 'yes'}
-                        className="w-full bg-black/60 text-white border border-[#FFFFFF]/40 rounded-xl px-5 py-4 font-sans appearance-none pr-10 focus:ring-1 focus:ring-[#FFFFFF] focus:border-[#FFFFFF] outline-none transition-all"
+                        className="w-full bg-white/80 text-stone-700 border border-[#9b1c23]/40 rounded-xl px-5 py-4 font-sans appearance-none pr-10 focus:ring-1 focus:ring-[#9b1c23] focus:border-[#9b1c23] outline-none transition-all"
                         name="guestCount" 
                         value={guestCount}
                         onChange={(e) => setGuestCount(e.target.value)}
                         disabled={isSubmitting}
                       >
                         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => (
-                          <option key={num} value={num} className="bg-[#7f1d1d] text-white">
+                          <option key={num} value={num} className="bg-white text-stone-700">
                             {num} {num === 1 ? 'Guest (Just me)' : 'Guests'}
                           </option>
                         ))}
                       </select>
-                      <svg className="w-5 h-5 absolute right-4 top-1/2 transform -translate-y-1/2 text-[#FFFFFF] pointer-events-none" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 absolute right-4 top-1/2 transform -translate-y-1/2 text-[#9b1c23] pointer-events-none" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"></path>
                       </svg>
                     </div>
@@ -165,12 +165,12 @@ export const RSVPForm: React.FC = () => {
                 )}
 
                 <div>
-                  <label className="block text-[#FFFFFF] text-xs font-semibold uppercase tracking-[0.2em] mb-3">Message (Optional)</label>
+                  <label className="block text-[#9b1c23] text-xs font-semibold uppercase tracking-[0.2em] mb-3">Message (Optional)</label>
                   <textarea 
                     name="message" 
                     maxLength={250} 
                     rows={4} 
-                    className="w-full bg-black/60 text-white border border-[#FFFFFF]/40 rounded-xl px-5 py-4 font-sans focus:ring-1 focus:ring-[#FFFFFF] focus:border-[#FFFFFF] outline-none transition-all placeholder:text-white/30 resize-none" 
+                    className="w-full bg-white/80 text-stone-700 border border-[#9b1c23]/40 rounded-xl px-5 py-4 font-sans focus:ring-1 focus:ring-[#9b1c23] focus:border-[#9b1c23] outline-none transition-all placeholder:text-white/30 resize-none" 
                     placeholder="Leave the couple a beautiful note!"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
@@ -183,11 +183,11 @@ export const RSVPForm: React.FC = () => {
                 <div className="pt-6 space-y-4">
                   <button 
                     type="submit" 
-                    className="w-full group relative flex items-center justify-center overflow-hidden rounded-full border border-[#FFFFFF] bg-transparent transition-all duration-300 hover:bg-[#FFFFFF] py-4 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full group relative flex items-center justify-center overflow-hidden rounded-full border border-[#9b1c23] bg-transparent transition-all duration-300 hover:bg-[#9b1c23] py-4 disabled:opacity-50 disabled:cursor-not-allowed"
                     disabled={isSubmitting}
                   >
-                    <span className="absolute inset-0 w-full h-full bg-[#FFFFFF] opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
-                    <span className="text-xs sm:text-sm font-sans text-[#FFFFFF] group-hover:text-[#7f1d1d] font-semibold uppercase tracking-[0.3em] transition-colors duration-300">
+                    <span className="absolute inset-0 w-full h-full bg-[#9b1c23] opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+                    <span className="text-xs sm:text-sm font-sans text-[#9b1c23] group-hover:text-white font-semibold uppercase tracking-[0.3em] transition-colors duration-300">
                       {isSubmitting ? 'Sending...' : 'Send RSVP with Love'}
                     </span>
                   </button>
@@ -196,10 +196,10 @@ export const RSVPForm: React.FC = () => {
                     href="https://www.google.com/calendar/render?action=TEMPLATE&text=Thilina+%26+Sandeepa+Wedding&dates=20261116T043100Z/20261116T093000Z&details=Poruwa+ceremony+at+10:01+AM.+We+are+excited+to+celebrate+with+you!&location=Opulent+River+Face+Hotel,+Rajagiriya&sf=true&output=xml" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="w-full group relative flex items-center justify-center overflow-hidden rounded-full border border-[#FFFFFF]/30 bg-[#FFFFFF]/5 transition-all duration-300 hover:bg-[#FFFFFF] py-4 hover:border-[#FFFFFF]"
+                    className="w-full group relative flex items-center justify-center overflow-hidden rounded-full border border-[#9b1c23]/30 bg-[#9b1c23]/5 transition-all duration-300 hover:bg-[#9b1c23] py-4 hover:border-[#9b1c23]"
                   >
-                    <Calendar className="mr-3 h-4 w-4 text-[#FFFFFF] group-hover:text-[#7f1d1d] transition-colors duration-300" />
-                    <span className="text-xs sm:text-sm font-sans text-[#FFFFFF] group-hover:text-[#7f1d1d] font-semibold uppercase tracking-[0.2em] transition-colors duration-300">
+                    <Calendar className="mr-3 h-4 w-4 text-[#9b1c23] group-hover:text-white transition-colors duration-300" />
+                    <span className="text-xs sm:text-sm font-sans text-[#9b1c23] group-hover:text-white font-semibold uppercase tracking-[0.2em] transition-colors duration-300">
                       Add to Google Calendar
                     </span>
                   </a>
