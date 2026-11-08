@@ -6,14 +6,7 @@ export const HeroContent: React.FC = () => {
   const searchParams = new URLSearchParams(window.location.search);
   const prefix = searchParams.get('prefix');
   const name = searchParams.get('name');
-  const inviteType = searchParams.get('invite') || 'both';
-
-  let dateText = "December 5 & 6, 2026";
-  if (inviteType === 'wedding') {
-    dateText = "Saturday, December 5, 2026";
-  } else if (inviteType === 'homecoming') {
-    dateText = "Sunday, December 6, 2026";
-  }
+  const dateText = "Monday, November 16, 2026";
 
   const getDisplayName = (p: string, n: string) => {
     const trimmedName = n.trim();
@@ -44,19 +37,19 @@ export const HeroContent: React.FC = () => {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/ChatGPT Image Aug 4, 2026, 01_41_50 AM.png" 
+          src="/Opulent Crimson Wedding Arch.png" 
           alt="Wedding background" 
           className="h-full w-full object-cover" 
           loading="eager" 
         />
-        <div className="absolute inset-0 bg-[#022c22]/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#3a0509]/55 via-[#4a0a0f]/45 to-[#3a0509]/60" />
       </div>
 
       <div className="relative z-10 w-full h-full flex flex-col justify-center items-center px-4">
         
         {guestNameString && (
           <motion.div 
-            className="flex flex-col items-center justify-center mb-6 sm:mb-8 bg-black/30 px-8 py-4 rounded-2xl backdrop-blur-sm border border-[#D4AF37]/20"
+            className="flex flex-col items-center justify-center mb-6 sm:mb-8 bg-black/30 px-8 py-4 rounded-2xl backdrop-blur-sm border border-[#FFFFFF]/20"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -64,7 +57,7 @@ export const HeroContent: React.FC = () => {
             <p className="text-[10px] sm:text-xs uppercase tracking-[0.3em] mb-2 font-sans text-white/90 drop-shadow-md text-center">
               We cordially invite
             </p>
-            <p className="font-serif text-2xl sm:text-3xl text-[#D4AF37] whitespace-nowrap text-center drop-shadow-lg">
+            <p className="font-serif text-2xl sm:text-3xl text-[#FFFFFF] whitespace-nowrap text-center drop-shadow-lg">
               {guestNameString}
             </p>
           </motion.div>
@@ -90,7 +83,7 @@ export const HeroContent: React.FC = () => {
           transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
         >
           <h1 className="text-6xl sm:text-7xl md:text-8xl font-display text-white drop-shadow-xl leading-tight" style={{ fontFamily: "'Great Vibes', cursive" }}>
-            Maneesha
+            Thilina
           </h1>
           
           <div className="my-1 sm:my-3 text-white opacity-90 drop-shadow-lg">
@@ -98,7 +91,7 @@ export const HeroContent: React.FC = () => {
           </div>
 
           <h1 className="text-6xl sm:text-7xl md:text-8xl font-display text-white drop-shadow-xl leading-tight" style={{ fontFamily: "'Great Vibes', cursive" }}>
-            Marin
+            Sandeepa
           </h1>
           
           <p className="text-sm sm:text-lg md:text-xl font-sans tracking-[0.1em] sm:tracking-[0.15em] text-white uppercase mt-12 sm:mt-16 drop-shadow-md">

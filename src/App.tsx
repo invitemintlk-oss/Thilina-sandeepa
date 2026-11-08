@@ -32,9 +32,8 @@ export default function App() {
   const searchParams = new URLSearchParams(window.location.search);
   const inviteType = searchParams.get('invite') || 'both';
 
-  const weddingDate = inviteType === 'homecoming' 
-    ? new Date('2026-12-06T19:00:00') 
-    : new Date('2026-12-05T10:30:00');
+  // Poruwa ceremony: 16 Nov 2026, 10:01 AM Sri Lanka time (UTC+05:30)
+  const weddingDate = new Date('2026-11-16T10:01:00+05:30');
 
   const startMusic = () => {
     if (audioRef.current && !isMusicPlaying) {
@@ -80,7 +79,7 @@ export default function App() {
       {/* Background Music */}
       <audio
         ref={audioRef}
-        src="/paulyudin-wedding-485932.mp3"
+        src="/fani_ellie-goulding-love-me-like-you-do-mp3.mp3"
         loop
         autoPlay
         onPlay={() => setIsMusicPlaying(true)}

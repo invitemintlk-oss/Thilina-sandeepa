@@ -25,7 +25,7 @@ export const IntroOverlay: React.FC<IntroOverlayProps> = ({ onEnter }) => {
         onEnded={onEnter}
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/Wedding_envelope_opens_with_light_202608040131.mp4" type="video/mp4" />
+        <source src="/gemini_generated_video_ee17a825.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-black/20 pointer-events-none"></div>
       
@@ -38,7 +38,7 @@ export const IntroOverlay: React.FC<IntroOverlayProps> = ({ onEnter }) => {
           >
             <button 
               onClick={handlePlay}
-              className="font-sans px-10 py-4 bg-[#064e3b]/80 backdrop-blur-md text-[#D4AF37] border border-[#D4AF37]/50 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:bg-[#D4AF37] hover:text-black hover:scale-105 transition-all duration-300 uppercase tracking-[0.3em] text-xs sm:text-sm"
+              className="font-sans px-10 py-4 bg-[#7f1d1d]/80 backdrop-blur-md text-[#FFFFFF] border border-[#FFFFFF]/50 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:bg-[#FFFFFF] hover:text-[#7f1d1d] hover:scale-105 transition-all duration-300 uppercase tracking-[0.3em] text-xs sm:text-sm"
             >
               Open Invitation
             </button>

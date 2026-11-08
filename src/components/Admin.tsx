@@ -4,7 +4,6 @@ import { Check, Link as LinkIcon, FileText } from 'lucide-react';
 export const Admin: React.FC = () => {
   const [prefix, setPrefix] = useState('Mr.');
   const [guestName, setGuestName] = useState('');
-  const [inviteType, setInviteType] = useState('both');
   const [linkCopied, setLinkCopied] = useState(false);
   const [messageCopied, setMessageCopied] = useState(false);
 
@@ -38,16 +37,10 @@ export const Admin: React.FC = () => {
   const displayName = getDisplayName(prefix, guestName);
 
   const generatedLink = guestName.trim()
-    ? `${baseUrl}/${encodeURIComponent(guestName.trim())}?prefix=${encodeURIComponent(prefix)}${inviteType !== 'both' ? `&invite=${inviteType}` : ''}`
+    ? `${baseUrl}/${encodeURIComponent(guestName.trim())}?prefix=${encodeURIComponent(prefix)}`
     : baseUrl;
 
-  const getInviteText = (type: string) => {
-    if (type === 'wedding') return 'wedding ceremony';
-    if (type === 'homecoming') return 'homecoming celebration';
-    return 'wedding and homecoming';
-  };
-
-  const generatedMessage = guestName.trim() ? `${getGreeting(prefix, guestName)} ❤️\n\nWith joyful hearts, we warmly invite you to celebrate one of the most special days of our lives as we begin our journey together.\n\nPlease view our ${getInviteText(inviteType)} invitation and all the event details through the link below 🌐:\n\n${generatedLink}\n\nYour presence would truly mean the world to us, and we would be honored to celebrate this beautiful moment together.\n\nWith love,\n❤️ Maneesha & Marin` : '';
+  const generatedMessage = guestName.trim() ? `${getGreeting(prefix, guestName)} ❤️\n\nWith joyful hearts, we warmly invite you to celebrate one of the most special days of our lives as we begin our journey together.\n\nPlease view our wedding invitation and all the event details through the link below 🌐:\n\n${generatedLink}\n\nYour presence would truly mean the world to us, and we would be honored to celebrate this beautiful moment together.\n\nWith love,\n❤️ Thilina & Sandeepa` : '';
 
   const handleCopyLink = async () => {
     if (!guestName.trim()) return;
@@ -104,19 +97,6 @@ export const Admin: React.FC = () => {
                 className="w-full h-12 px-4 rounded-xl border border-stone-200 bg-stone-50 focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] outline-none transition-all"
               />
             </div>
-          </div>
-
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-stone-600 uppercase tracking-widest">Invite Type</label>
-            <select
-              value={inviteType}
-              onChange={(e) => setInviteType(e.target.value)}
-              className="w-full h-12 px-4 rounded-xl border border-stone-200 bg-stone-50 focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] outline-none transition-all"
-            >
-              <option value="both">Both (Wedding & Homecoming)</option>
-              <option value="wedding">Wedding Only</option>
-              <option value="homecoming">Homecoming Only</option>
-            </select>
           </div>
 
           <div className="pt-6 border-t border-stone-100 space-y-4">
