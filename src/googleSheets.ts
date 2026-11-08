@@ -1,11 +1,12 @@
-type SheetName = 'rsvp' | 'wishes';
+type SheetName = 'rsvp';
 
 type SheetPayload = Record<string, string | number>;
 
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbymVLg4zPpxa5aQhBE3BZ8DpW6XG0_jcxeJBTtqp1aKWtgdY71KAprLTS2xfy7IB0zy/exec";
+// Paste the Web App /exec URL from the Apps Script deployment (google-apps-script/code.gs)
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx2BGj7yPcGEd-xgbuUe_H2b2CVROLrEg5e6SCtu9Yr9l_QXU4QbMe2nckOgT4OsLh6dQ/exec";
 
 export async function submitToGoogleSheet(sheet: SheetName, payload: SheetPayload): Promise<void> {
-  if (!GOOGLE_SCRIPT_URL) {
+  if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.startsWith('PASTE_')) {
     throw new Error('Missing GOOGLE_SCRIPT_URL');
   }
 

@@ -1,104 +1,65 @@
-const SPREADSHEET_ID = '1IMV3FN0jZZk3CFWPG0H1kYensNHLc_Y4PzqpL67qVdc';
-const SHEET_NAMES = {
-  rsvp: 'RSVP',
-  wishes: 'Wishes',
+// Thilina & Sandeepa wedding — RSVP receiver
+// Spreadsheet: https://docs.google.com/spreadsheets/d/1EZ_3fuEhwjCSi3BuyL3J22EaiFST0xeybo5yI_Yv1q8/edit
+const SPREADSHEET_ID = '1EZ_3fuEhwjCSi3BuyL3J22EaiFST0xeybo5yI_Yv1q8';
+const TIMEZONE = 'Asia/Colombo';
+
+const SHEETS = {
+  rsvp: {
+    name: 'RSVP',
+    headers: ['Timestamp', 'Name', 'Attending', 'Guests', 'Message'],
+    row: (p) => [p.name, p.status, p.guestCount, p.message],
+  },
 };
 
 function doPost(e) {
+  const lock = LockService.getScriptLock();
+  lock.waitLock(10000); // avoid two guests writing the same row at once
   try {
-    const sheetKey = ((e && e.parameter && e.parameter.sheet) || '').toLowerCase();
-    const payloadJson = (e && e.parameter && e.parameter.payload) || '{}';
-
-    if (!SHEET_NAMES[sheetKey]) {
-      return jsonResponse({ ok: false, error: 'Invalid sheet name. Use rsvp or wishes.' });
+    const key = String((e && e.parameter && e.parameter.sheet) || '').toLowerCase();
+    const config = SHEETS[key];
+    if (!config) {
+      return jsonResponse({ ok: false, error: 'Invalid sheet. Use rsvp.' });
     }
 
-    const payload = JSON.parse(payloadJson);
+    const payload = JSON.parse((e.parameter && e.parameter.payload) || '{}');
     const spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
-    const sheetName = SHEET_NAMES[sheetKey];
-    
-    // Auto-create the sheet if it doesn't exist
-    const sheet = spreadsheet.getSheetByName(sheetName) || spreadsheet.insertSheet(sheetName);
+    const sheet = spreadsheet.getSheetByName(config.name) || spreadsheet.insertSheet(config.name);
 
-    // Auto-create headers if the sheet is empty
-    ensureHeaders(sheetKey, sheet);
-    
-    // Append the new response row
-    sheet.appendRow(buildRow(sheetKey, payload));
+    ensureHeaders(sheet, config.headers);
 
-    return jsonResponse({ ok: true, sheet: sheetName });
+    const timestamp = Utilities.formatDate(new Date(), TIMEZONE, 'yyyy-MM-dd HH:mm:ss');
+    sheet.appendRow([timestamp].concat(config.row(payload).map(sanitize)));
+
+    return jsonResponse({ ok: true, sheet: config.name });
   } catch (error) {
-    return jsonResponse({
-      ok: false,
-      error: String(error && error.message ? error.message : error),
-    });
+    return jsonResponse({ ok: false, error: String(error && error.message ? error.message : error) });
+  } finally {
+    lock.releaseLock();
   }
 }
 
-function doGet(e) {
-  const action = ((e && e.parameter && e.parameter.action) || '').toLowerCase();
-
-  if (action === 'health') {
-    return jsonResponse({ ok: true, service: 'wedding-forms', timestamp: new Date().toISOString() });
-  }
-
-  return jsonResponse({ ok: true, message: 'Use POST with sheet=rsvp or sheet=wishes and payload=<json>' });
+function doGet() {
+  return jsonResponse({ ok: true, service: 'thilina-sandeepa-rsvp', time: new Date().toISOString() });
 }
 
-function ensureHeaders(sheetKey, sheet) {
-  // If there are already rows, we don't need to add headers
-  if (sheet.getLastRow() > 0) {
-    return;
-  }
-
-  let numCols = 4;
-  if (sheetKey === 'rsvp') {
-    sheet.appendRow(['Timestamp', 'Name', 'Status', 'Submitted At (ISO)']);
-  } else if (sheetKey === 'wishes') {
-    sheet.appendRow(['Timestamp', 'Name', 'Wish', 'Submitted At (ISO)']);
-  }
-  
-  // Format the header row to make it bold and add a background color
-  const headerRange = sheet.getRange(1, 1, 1, numCols);
-  headerRange.setFontWeight("bold");
-  headerRange.setBackground("#f3f3f3");
-  
-  // Auto-resize columns for better readability
-  sheet.autoResizeColumns(1, numCols);
+function ensureHeaders(sheet, headers) {
+  if (sheet.getLastRow() > 0) return;
+  sheet.appendRow(headers);
+  sheet.getRange(1, 1, 1, headers.length)
+    .setFontWeight('bold')
+    .setBackground('#7f1d1d')
+    .setFontColor('#ffffff');
+  sheet.setFrozenRows(1);
+  sheet.autoResizeColumns(1, headers.length);
 }
 
-function buildRow(sheetKey, payload) {
-  const now = new Date();
-
-  if (sheetKey === 'rsvp') {
-    return [
-      now,
-      sanitize(payload.name),
-      sanitize(payload.status),
-      sanitize(payload.submittedAt),
-    ];
-  } else if (sheetKey === 'wishes') {
-    return [
-      now,
-      sanitize(payload.name),
-      sanitize(payload.wish),
-      sanitize(payload.submittedAt),
-    ];
-  }
-
-  return [now, JSON.stringify(payload)];
-}
-
+// Prefix values starting with = + - @ so guest input can't run as a formula
 function sanitize(value) {
-  if (value === null || value === undefined) {
-    return '';
-  }
-  return String(value).trim();
+  if (value === null || value === undefined) return '';
+  const text = String(value).trim();
+  return /^[=+\-@]/.test(text) ? "'" + text : text;
 }
 
 function jsonResponse(data) {
-  return ContentService
-    .createTextOutput(JSON.stringify(data))
-    .setMimeType(ContentService.MimeType.JSON);
+  return ContentService.createTextOutput(JSON.stringify(data)).setMimeType(ContentService.MimeType.JSON);
 }
-
