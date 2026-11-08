@@ -47,10 +47,10 @@ export const HappyCouple: React.FC = () => {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <div className="absolute inset-0 bg-white/10"></div>
+      <div className="absolute inset-0 bg-transparent"></div>
 
       <motion.div
-        className="relative z-10 mx-auto w-[calc(100%-2.5rem)] max-w-[22rem] sm:max-w-2xl rounded-t-[120px] sm:rounded-t-[180px] rounded-b-[32px] border border-[#9b1c23]/30 bg-[#fbf7f2]/65 backdrop-blur-md shadow-[0_20px_60px_rgba(127,29,29,0.12)] px-6 pt-14 pb-10 sm:px-14 sm:pt-20 sm:pb-16"
+        className="relative z-10 mx-auto w-[calc(100%-2.5rem)] max-w-[22rem] sm:max-w-2xl rounded-t-[120px] sm:rounded-t-[180px] rounded-b-[32px] border border-[#9b1c23]/30 bg-white/50 backdrop-blur-[2px] shadow-[0_20px_60px_rgba(127,29,29,0.12)] px-6 pt-14 pb-10 sm:px-14 sm:pt-20 sm:pb-16"
         initial={{ opacity: 0, scale: 0.96 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}

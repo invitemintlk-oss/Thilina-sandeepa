@@ -14,7 +14,7 @@ export const HomecomingDetails: React.FC = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url('/Romantic Red and Ivory Floral Frame.png')` }}
       ></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-[#fbf7f2] via-transparent to-[#fbf7f2]"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#fbf7f2]/30 via-transparent to-[#fbf7f2]/30"></div>
 
       {/* Subtle Glow Effects */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-1/2 bg-[#9b1c23]/5 blur-[120px] rounded-full pointer-events-none"></div>
@@ -44,7 +44,7 @@ export const HomecomingDetails: React.FC = () => {
         <div className="flex flex-col items-center justify-center w-full max-w-6xl">
           {/* Poruwa Ceremony Card */}
           <motion.div
-            className="relative w-full max-w-lg bg-white/80 backdrop-blur-md rounded-t-[140px] rounded-b-[40px] border border-[#9b1c23]/40 shadow-[0_20px_50px_rgba(127,29,29,0.12)] p-8 md:p-14 flex flex-col items-center text-center overflow-hidden"
+            className="relative w-full max-w-lg bg-white/55 backdrop-blur-[2px] rounded-t-[140px] rounded-b-[40px] border border-[#9b1c23]/40 shadow-[0_20px_50px_rgba(127,29,29,0.12)] p-8 md:p-14 flex flex-col items-center text-center overflow-hidden"
             initial={{ opacity: 0, scale: 0.95, y: 40 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}

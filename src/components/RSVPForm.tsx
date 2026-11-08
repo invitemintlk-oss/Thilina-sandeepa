@@ -54,7 +54,7 @@ export const RSVPForm: React.FC = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url('/Romantic Red and Ivory Floral Frame.png')` }}
       ></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-[#fbf7f2] via-transparent to-[#fbf7f2]"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#fbf7f2]/30 via-transparent to-[#fbf7f2]/30"></div>
       
       {/* Subtle Glow Effects */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-3/4 bg-[#9b1c23]/5 blur-[120px] rounded-full pointer-events-none"></div>
@@ -87,7 +87,7 @@ export const RSVPForm: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <div className="relative bg-white/80 backdrop-blur-md p-8 sm:p-12 md:p-16 rounded-[40px] shadow-[0_20px_50px_rgba(127,29,29,0.12)] border border-[#9b1c23]/30 overflow-hidden">
+          <div className="relative bg-white/55 backdrop-blur-[2px] p-8 sm:p-12 md:p-16 rounded-[40px] shadow-[0_20px_50px_rgba(127,29,29,0.12)] border border-[#9b1c23]/30 overflow-hidden">
             
             {/* Decorative Inner Border */}
             <div className="absolute inset-3 sm:inset-4 border-[1px] border-[#9b1c23]/10 rounded-[30px] pointer-events-none"></div>

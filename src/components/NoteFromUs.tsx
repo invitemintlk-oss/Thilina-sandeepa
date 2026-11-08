@@ -11,7 +11,7 @@ export const NoteFromUs: React.FC = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url('/Gemini_Generated_Image_14xndk14xndk14xn.jpg')` }}
       ></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-[#fbf7f2] via-transparent to-[#fbf7f2]"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-[#fbf7f2]/30 via-transparent to-[#fbf7f2]/30"></div>
       
       {/* Subtle Glow Effects */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-3/4 bg-[#9b1c23]/5 blur-[100px] rounded-full pointer-events-none"></div>
@@ -25,7 +25,7 @@ export const NoteFromUs: React.FC = () => {
           transition={{ duration: 1 }}
         >
           {/* Elegant Card Container */}
-          <div className="relative bg-white/80 backdrop-blur-md p-8 sm:p-14 md:p-20 rounded-t-[120px] rounded-b-[40px] shadow-[0_20px_50px_rgba(127,29,29,0.12)] border border-[#9b1c23]/40 text-center overflow-hidden">
+          <div className="relative bg-white/55 backdrop-blur-[2px] p-8 sm:p-14 md:p-20 rounded-t-[120px] rounded-b-[40px] shadow-[0_20px_50px_rgba(127,29,29,0.12)] border border-[#9b1c23]/40 text-center overflow-hidden">
             
             {/* Decorative Inner Border */}
             <div className="absolute inset-4 sm:inset-6 border-[1px] border-[#9b1c23]/20 rounded-t-[100px] rounded-b-[25px] pointer-events-none"></div>

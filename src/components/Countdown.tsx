@@ -38,7 +38,7 @@ export const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
         backgroundPosition: 'center' 
       }}
     >
-      <div className="absolute inset-0 bg-[#fbf7f2]/40"></div>
+      <div className="absolute inset-0 bg-[#fbf7f2]/10"></div>
       <div className="container px-4 md:px-6 mx-auto relative z-10">
         <div className="flex flex-col items-center space-y-12 text-center">
           
@@ -74,7 +74,7 @@ export const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
               { label: 'Minutes', value: timeLeft.minutes },
               { label: 'Seconds', value: timeLeft.seconds }
             ].map((item, i) => (
-              <div key={item.label} className="flex flex-col items-center justify-center p-6 w-full aspect-[3/4] max-h-[280px] bg-[#fbf7f2]/80 backdrop-blur-sm rounded-t-[40%] rounded-b-[40%] shadow-[0_10px_30px_rgba(127,29,29,0.12)] border-[1.5px] border-[#9b1c23]/60 mx-auto transition-transform hover:scale-105 duration-300">
+              <div key={item.label} className="flex flex-col items-center justify-center p-6 w-full aspect-[3/4] max-h-[280px] bg-white/60 backdrop-blur-[2px] rounded-t-[40%] rounded-b-[40%] shadow-[0_10px_30px_rgba(127,29,29,0.12)] border-[1.5px] border-[#9b1c23]/60 mx-auto transition-transform hover:scale-105 duration-300">
                 <div className="text-6xl md:text-8xl font-serif text-[#9b1c23] mb-2 drop-shadow-md" style={{ fontVariantNumeric: "tabular-nums" }}>
                   {String(item.value).padStart(2, '0')}
                 </div>

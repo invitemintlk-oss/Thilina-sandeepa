@@ -42,7 +42,7 @@ export const HeroContent: React.FC = () => {
           className="h-full w-full object-cover" 
           loading="eager" 
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/20 to-white/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-white/20" />
       </div>
 
       <div className="relative z-10 w-full h-full flex flex-col justify-center items-center px-4">
