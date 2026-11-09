@@ -49,15 +49,23 @@ export const HeroContent: React.FC = () => {
         
         {guestNameString && (
           <motion.div 
-            className="flex flex-col items-center justify-center mb-6 sm:mb-8 bg-white/10 px-8 py-4 rounded-2xl backdrop-blur-sm border border-[#9b1c23]/20"
+            className="flex flex-col items-center justify-center mb-6 sm:mb-8 w-full max-w-[20rem] sm:max-w-md bg-white/90 px-5 sm:px-8 py-4 rounded-2xl border border-[#9b1c23]/30 shadow-[0_8px_30px_rgba(127,29,29,0.15)]"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            <p className="text-[10px] sm:text-xs uppercase tracking-[0.3em] mb-2 font-sans text-stone-700 drop-shadow-md text-center">
+            <p className="text-[10px] sm:text-xs uppercase tracking-[0.3em] mb-2 font-sans text-stone-600 text-center">
               We cordially invite
             </p>
-            <p className="font-serif text-2xl sm:text-3xl text-[#9b1c23] whitespace-nowrap text-center drop-shadow-lg">
+            <p
+              className={`font-serif font-medium text-[#9b1c23] text-center leading-snug break-words w-full ${
+                guestNameString.length > 32
+                  ? 'text-base sm:text-xl'
+                  : guestNameString.length > 20
+                  ? 'text-lg sm:text-2xl'
+                  : 'text-2xl sm:text-3xl'
+              }`}
+            >
               {guestNameString}
             </p>
           </motion.div>
